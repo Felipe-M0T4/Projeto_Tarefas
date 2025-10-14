@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ficha do Herói Interativa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #eee;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .hero-card {
+      background: #1f1f1f;
+      border-radius: 10px;
+      padding: 20px;
+      width: 550px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+      margin: 20px;
+    }
+    .hero-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .hero-header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      color: #008202;
+    }
+    .hero-header .level {
+      font-size: 1.2em;
+      color: #ccc;
+    }
+    .progress-bar {
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      height: 20px;
+      margin: 10px 0;
+    }
+    .progress-fill {
+      background: #27ae60;
+      height: 100%;
+      width: 0%; /* será atualizado por JS */
+      transition: width 0.5s ease-in-out;
+    }
+    .section {
+      margin-top: 20px;
+    }
+    .section h2 {
+      font-size: 1.2em;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    .skill-item, .quest-item {
+      background: #2c2c2c;
+      margin-bottom: 8px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .skill-item input.name, .skill-item input.value,
+    .quest-item input.name {
+      background: transparent;
+      border: none;
+      color: #14c504;
+      font-weight: bold;
+      font-size: 1em;
+      width: auto;
+      flex: 1;
+      margin-right: 10px;
+    }
+    .quest-item input.status {
+      background: transparent;
+      border: none;
+      color: #aaa;
+      font-size: 0.9em;
+      width: 80px;
+      text-align: right;
+    }
+    .quest-item input.status:focus,
+    .skill-item input:focus {
+      outline: 1px dashed #555;
+    }
+    .btn {
+      display: inline-block;
+      padding: 8px 12px;
+      color: #fff;
+      background: #2980b9;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background: #3498db;
+    }
+    .controls {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-card">
+    <div class="hero-header">
+
+      <h1 contenteditable="true" id="hero-name">Nome: Felipe</h1>
+
+      <img src="c:\Users\Daniel Mota\Downloads\sr5zc109b8576aaws3.png" 
+      style="width: 70px; height: 70px; background-color:#1e5f18; border-radius: 50%; float: left; margin-top: -40px" alt="imagem do herói">
+
+      <div class="level">
+        Nível <input type="number" id="hero-level" min="1" value="1" style="width:50px; background:transparent; border:none; color:#ccc; font-size:1.2em;">
+        
+        • XP: 
+        <input type="number" id="hero-xp" min="0" value="0" style="width:60px; background:transparent; border:none; color:#ccc; font-size:1.2em;">
+        / 
+        <input type="number" id="hero-xp-max" min="1" value="100" style="width:60px; background:transparent; border:none; color:#ccc; font-size:1.2em;">
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="level-progress">
+        </div>
+      </div>
+    </div>
+
+    <div class="section skills">
+      <h2>Skills</h2>
+      <div id="skills-list">
+        <div class="skill-item">
+          <input type="text" class="name" placeholder="Nome da skill" value="Música">
+          <input type="text" class="value" placeholder="Descrição/nível da skill" value="">
+          <button class="btn-remove-skill btn" style="background:#c0392b;">Remover</button>
+        </div>
+
+
+        <div class="skill-item">
+          <input type="text" class="name" placeholder="Nome da skill" value="Programação">
+          <input type="text" class="value" placeholder="Descrição/nível da skill" value="">
+          <button class="btn-remove-skill btn" style="background:#c0392b;">Remover</button>
+        </div>
+      </div>
+      <button id="add-skill-btn" class="btn">Adicionar Skill</button>
+    </div>
+
+    <div class="section quests">
+      <h2>Quests</h2>
+      <div id="quests-list">
+
+        <div class="quest-item">
+          <input type="text" class="name" placeholder="Quest" value="">
+
+          <input type="text" class="status" placeholder="Status" value="">
+
+          <button class="btn-remove-quest btn" style="background:#c0392b;">Remover</button>
+        </div>
+
+
+        <div class="quest-item">
+          <input type="text" class="name" placeholder="Quest" value="">
+
+          <input type="text" class="status" placeholder="Status" value="">
+
+          <button class="btn-remove-quest btn" style="background:#c0392b;">Remover</button>
+          
+        </div>
+        <div class="quest-item">
+          <input type="text" class="name" placeholder="Quest" value="">
+          <input type="text" class="status" placeholder="Status" value="">
+          <button class="btn-remove-quest btn" style="background:#c0392b;">Remover</button>
+        </div>
+      </div>
+      <button id="add-quest-btn" class="btn">Adicionar Quest</button>
+    </div>
+
+    <div class="controls">
+      <button id="save-btn" class="btn">Salvar Ficha</button>
+
+      <button id="load-btn" class="btn">Carregar Ficha</button>
+      
+      <button id="reset-btn" class="btn" style="background:#7f8c8d;">Resetar Ficha</button>
+    </div>
+
+<br><br>
+
+    <button style="margin-left: 40%; width: 100px; height: 50px; border-radius: 8px; background-color: rgb(109, 109, 109); border: solid 2px rgb(71, 71, 71)"><a style="color: white; text-decoration: none" href="Prog.html">Tabela de Progressão</a></button>
+  </div>
+
+  <script>
+    // Função para atualizar a barra de progresso
+    function updateProgressBar() {
+      const xp = parseInt(document.getElementById('hero-xp').value) || 0;
+      const xpMax = parseInt(document.getElementById('hero-xp-max').value) || 1;
+      const percent = Math.min((xp / xpMax) * 100, 100);
+      document.getElementById('level-progress').style.width = percent + '%';
+    }
+
+    // Função para adicionar skill
+    function addSkill(name = '', value = '') {
+      const container = document.getElementById('skills-list');
+      const div = document.createElement('div');
+      div.classList.add('skill-item');
+      div.innerHTML = `
+        <input type="text" class="name" placeholder="Nome da skill" value="${name}">
+        <input type="text" class="value" placeholder="Descrição/nível da skill" value="${value}">
+        <button class="btn-remove-skill btn" style="background:#c0392b;">Remover</button>
+      `;
+      container.appendChild(div);
+
+      div.querySelector('.btn-remove-skill').addEventListener('click', () => {
+        container.removeChild(div);
+      });
+    }
+
+    // Função para adicionar quest
+    function addQuest(name = '', status = '') {
+      const container = document.getElementById('quests-list');
+      const div = document.createElement('div');
+      div.classList.add('quest-item');
+      div.innerHTML = `
+        <input type="text" class="name" placeholder="Quest" value="${name}">
+        <input type="text" class="status" placeholder="Status" value="${status}">
+        <button class="btn-remove-quest btn" style="background:#c0392b;">Remover</button>
+      `;
+      container.appendChild(div);
+
+      div.querySelector('.btn-remove-quest').addEventListener('click', () => {
+        container.removeChild(div);
+      });
+    }
+
+    // Salvando e carregando via localStorage
+    function saveFicha() {
+      const ficha = {};
+
+      ficha.heroName = document.getElementById('hero-name').innerText.trim();
+      ficha.level = document.getElementById('hero-level').value;
+      ficha.xp = document.getElementById('hero-xp').value;
+      ficha.xpMax = document.getElementById('hero-xp-max').value;
+
+      ficha.skills = [];
+      document.querySelectorAll('#skills-list .skill-item').forEach(el => {
+        const name = el.querySelector('input.name').value.trim();
+        const value = el.querySelector('input.value').value.trim();
+        if (name) {
+          ficha.skills.push({ name, value });
+        }
+      });
+
+      ficha.quests = [];
+      document.querySelectorAll('#quests-list .quest-item').forEach(el => {
+        const name = el.querySelector('input.name').value.trim();
+        const status = el.querySelector('input.status').value.trim();
+        if (name) {
+          ficha.quests.push({ name, status });
+        }
+      });
+
+      localStorage.setItem('heroFicha', JSON.stringify(ficha));
+      alert('Ficha salva!');
+    }
+
+    function loadFicha() {
+      const stored = localStorage.getItem('heroFicha');
+      if (!stored) {
+        alert('Nenhuma ficha salva encontrada.');
+        return;
+      }
+      const ficha = JSON.parse(stored);
+
+      document.getElementById('hero-name').innerText = ficha.heroName || 'Herói: ---';
+      document.getElementById('hero-level').value = ficha.level || 1;
+      document.getElementById('hero-xp').value = ficha.xp || 0;
+      document.getElementById('hero-xp-max').value = ficha.xpMax || 1;
+
+      updateProgressBar();
+
+      // Limpar skills existentes
+      const skillsList = document.getElementById('skills-list');
+      skillsList.innerHTML = '';
+      (ficha.skills || []).forEach(s => {
+        addSkill(s.name, s.value);
+      });
+
+      // Limpar quests existentes
+      const questsList = document.getElementById('quests-list');
+      questsList.innerHTML = '';
+      (ficha.quests || []).forEach(q => {
+        addQuest(q.name, q.status);
+      });
+    }
+
+    function resetFicha() {
+      if (confirm('Tem certeza que quer resetar a ficha? Isso apagará os dados salvos.')) {
+        localStorage.removeItem('heroFicha');
+        location.reload();
+      }
+    }
+
+    // Inicializações
+    document.addEventListener('DOMContentLoaded', () => {
+      updateProgressBar();
+
+      document.getElementById('hero-xp').addEventListener('input', updateProgressBar);
+      document.getElementById('hero-xp-max').addEventListener('input', updateProgressBar);
+
+      document.getElementById('add-skill-btn').addEventListener('click', () => addSkill());
+      document.getElementById('add-quest-btn').addEventListener('click', () => addQuest());
+
+      document.getElementById('save-btn').addEventListener('click', saveFicha);
+      document.getElementById('load-btn').addEventListener('click', loadFicha);
+      document.getElementById('reset-btn').addEventListener('click', resetFicha);
+    });
+  </script>
+
+</body>
+</html>
