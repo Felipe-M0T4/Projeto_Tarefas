@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt‑BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device‑width, initial-scale=1.0">
+  <title>Grade Semanal</title>
+  <style>
+    body {
+      font-family: Arial, sans‑serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+      vertical-align: top;
+    }
+    th {
+      background: #eee;
+    }
+    .time-col {
+      background: #f0f0f0;
+      font-weight: bold;
+      width: 100px;
+    }
+    .scrollable {
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Minha Grade Semanal</h1>
+  <div class="scrollable">
+    <table>
+      <thead>
+        <tr>
+          <th class="time-col">Hora</th>
+          <th>Domingo</th>
+          <th>Segunda</th>
+          <th>Terça</th>
+          <th>Quarta</th>
+          <th>Quinta</th>
+          <th>Sexta</th>
+          <th>Sábado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time-col">4h‑5h</td>
+          <td contenteditable="true">Preparatório</td>
+          <td>Preparatório</td>
+          <td>Preparatório</td>
+          <td>Preparatório</td>
+          <td>Preparatório</td>
+          <td>Preparatório</td>
+          <td>Preparatório</td>
+        </tr>
+        <tr>
+          <td class="time-col">5h‑6h</td>
+          <td>TI ‑ C.C.</td>
+          <td>TI ‑ Soft Skills</td>
+          <td>TI ‑ Repositório</td>
+          <td>TI ‑ Leitura</td>
+          <td>TI ‑ Videoaula</td>
+          <td>TI ‑ Treino</td>
+          <td>TI ‑ Reforço</td>
+        </tr>
+        <tr>
+          <td class="time-col">6h‑7h</td>
+          <td>TI ‑ C.C.</td>
+          <td>Bíblia</td>
+          <td>Bíblia</td>
+          <td>Bíblia</td>
+          <td>Bíblia</td>
+          <td>Bíblia</td>
+          <td>TI ‑ Reforço</td>
+        </tr>
+        <tr>
+          <td class="time-col">7h‑8h</td>
+          <td>TI ‑ C.C.</td>
+          <td>Mat ‑ Teoria</td>
+          <td>Geo ‑ Teoria</td>
+          <td>Por ‑ Teoria</td>
+          <td>Biológicas</td>
+          <td>Red ‑ Teoria</td>
+          <td>TI ‑ Reforço</td>
+        </tr>
+        <tr>
+          <td class="time-col">8h‑9h</td>
+          <td>Full Body</td>
+          <td>Mat ‑ Prática</td>
+          <td>Geo ‑ Prática</td>
+          <td>Por ‑ Prática</td>
+          <td>Bio1 ‑ Teoria</td>
+          <td>Red ‑ Teoria</td>
+          <td>Core</td>
+        </tr>
+        <tr>
+          <td class="time-col">9h‑10h</td>
+          <td>Descanso</td>
+          <td>Fís ‑ Teoria</td>
+          <td>His ‑ Teoria</td>
+          <td>Lit ‑ Teoria</td>
+          <td>Bio1 ‑ Prática</td>
+          <td>Red ‑ Prática</td>
+          <td>Descanso</td>
+        </tr>
+        <tr>
+          <td class="time-col">10h‑11h</td>
+          <td>Composição</td>
+          <td>Fis ‑ Prática</td>
+          <td>His ‑ Prática</td>
+          <td>Lit ‑ Prática</td>
+          <td>Bio2 ‑ Teoria</td>
+          <td>Red ‑ Prática</td>
+          <td>HarmoniaRitmo</td>
+        </tr>
+        <tr>
+          <td class="time-col">11h‑12h</td>
+          <td>Composição</td>
+          <td>Qui ‑ Teoria</td>
+          <td>Fil/Soc ‑ Teoria</td>
+          <td>Ing ‑ Teoria</td>
+          <td>Bio2 ‑ Prática</td>
+          <td>Red ‑ Prática</td>
+          <td>HarmoniaRitmo</td>
+        </tr>
+        <tr>
+          <td class="time-col">12h‑13h</td>
+          <td>Composição</td>
+          <td>Qui ‑ Prática</td>
+          <td>Fil/Soc ‑ Prática</td>
+          <td>Ing ‑ Prática</td>
+          <td>Artes</td>
+          <td>Red ‑ Prática</td>
+          <td>HarmoniaRitmo</td>
+        </tr>
+        <tr>
+          <td class="time-col">13h‑14h</td>
+          <td>Revisão Musical</td>
+          <td>Descanso</td>
+          <td>Descanso</td>
+          <td>Descanso</td>
+          <td>Descanso</td>
+          <td>Descanso</td>
+          <td>Revisão Musical</td>
+        </tr>
+        <tr>
+          <td class="time-col">14h‑15h</td>
+          <td>Descanso</td>
+          <td>TI ‑ Soft Skills</td>
+          <td>TI repositório</td>
+          <td>TI ‑ Leitura</td>
+          <td>TI ‑ Videoaula</td>
+          <td>TI ‑ Treino</td>
+          <td>Descanso</td>
+        </tr>
+        <tr>
+          <td class="time-col">15h‑16h</td>
+          <td>Revisão TI</td>
+          <td>TI ‑ Soft Skills</td>
+          <td>TI repositório</td>
+          <td>TI ‑ Leitura</td>
+          <td>TI ‑ Videoaula</td>
+          <td>TI ‑ Treino</td>
+          <td>Revisão TI</td>
+        </tr>
+        <tr>
+          <td class="time-col">16h‑17h</td>
+          <td>Livre</td>
+          <td>Cardio</td>
+          <td>Esc. menores</td>
+          <td>Che‑Sho‑Tri</td>
+          <td>Bac‑Bic</td>
+          <td>Leg‑Mob</td>
+          <td>Livre</td>
+        </tr>
+        <tr>
+          <td class="time-col">17h‑18h</td>
+          <td>Livre</td>
+          <td>Descanso</td>
+          <td>Descanso</td>
+          <td>Descanso</td>
+          <td>Descanso</td>
+          <td>Descanso</td>
+          <td>Livre</td>
+        </tr>
+        <tr>
+          <td class="time-col">18h‑19h</td>
+          <td>Igreja</td>
+          <td>Revisão prova</td>
+          <td>Planilha TI</td>
+          <td>Crisma</td>
+          <td>Cifra/Partitura</td>
+          <td>Fundamento</td>
+          <td>Teoria Musical</td>
+        </tr>
+        <tr>
+          <td class="time-col">19h‑20h</td>
+          <td>Livre</td>
+          <td>Revisão prova</td>
+          <td>Curso</td>
+          <td>Crisma</td>
+          <td>Cifra/Partitura</td>
+          <td>Fundamento</td>
+          <td>Teoria Musical</td>
+        </tr>
+        <tr>
+          <td class="time-col">20h‑21h</td>
+          <td>Arte visual</td>
+          <td>Inspiração</td>
+          <td>Curso</td>
+          <td>W. Building</td>
+          <td>Escrever atos</td>
+          <td>Personagens</td>
+          <td>Scriptas</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+</body>
+</html>
