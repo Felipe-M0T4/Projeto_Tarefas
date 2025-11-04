@@ -31,6 +31,33 @@
     .scrollable {
       overflow-x: auto;
     }
+
+    .btn_cor{
+      border-radius: 50%;
+      border: solid 2px black;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .btn_cor:hover{
+      background-color:rgb(190, 190, 190);
+      transition: background-color 0.5;
+    }
+
+  /* O pop-up fica oculto por padrão */
+  .popup {
+    display: none; /* Oculta o pop-up */
+    position: fixed; /* Fica fixo na tela */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(155, 155, 155);
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+  }
   </style>
 </head>
 <body>
@@ -53,7 +80,7 @@
       <tbody>
         <tr>
           <td class="time-col">4h‑5h</td>
-          <td contenteditable="true">Preparatório</td>
+          <td id="container" contenteditable="true">Preparatório</td>
           <td contenteditable="true">Preparatório</td>
           <td contenteditable="true">Preparatório</td>
           <td contenteditable="true">Preparatório</td>
@@ -221,9 +248,30 @@
           <td contenteditable="true">Personagens</td>
           <td contenteditable="true">Scriptas</td>
         </tr>
+
+        <modal id="popup">
+        <div>
+              <h2>Olá! Este é um pop-up!</h2>
+              <p>Conteúdo do seu pop-up aqui.</p>
+               <button onclick="CLOSEpopup()">Close Pop Up</button>
+        </div>
+        </modal>
+
+        <button onclick="popup()">Summon Pop Up</button>
+        <br>
       </tbody>
     </table>
 </div>
 
 </body>
 </html>
+
+<script>
+
+  function popup(){
+    document.getElementById("popup").style.display = "block";
+  }
+  function CLOSEpopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
